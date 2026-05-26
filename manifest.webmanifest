@@ -1,0 +1,26 @@
+{
+  "name": "iPhone 摄影模式启动器 Pro",
+  "short_name": "摄影模式 Pro",
+  "description": "一键切换不同 iPhone 拍照氛围的摄影风格控制台。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#101014",
+  "theme_color": "#101014",
+  "categories": ["photo", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

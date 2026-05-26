@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101014" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="摄影模式 Pro" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>iPhone 摄影模式启动器 Pro</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <span class="aura aura-one"></span>
+      <span class="aura aura-two"></span>
+      <span class="aura aura-three"></span>
+      <span class="grain"></span>
+    </div>
+
+    <main class="app-shell">
+      <section class="welcome" id="welcome" aria-label="启动页">
+        <div class="launch-mark">
+          <span class="lens-ring"></span>
+          <span class="lens-core"></span>
+        </div>
+        <p>Photography Console</p>
+      </section>
+
+      <section class="home-screen" aria-label="摄影模式">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">iPhone Camera Launcher</p>
+            <h1>摄影模式启动器 Pro</h1>
+          </div>
+          <button class="glass-icon" id="installTip" type="button" aria-label="添加到主屏幕">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v12m0-12 4 4m-4-4-4 4M5 14v4.2A2.8 2.8 0 0 0 7.8 21h8.4a2.8 2.8 0 0 0 2.8-2.8V14" />
+            </svg>
+          </button>
+        </header>
+
+        <div class="status-panel">
+          <div>
+            <span class="status-dot"></span>
+            <span id="systemTone">自动适配系统外观</span>
+          </div>
+          <strong id="clockText">Ready</strong>
+        </div>
+
+        <section class="mode-grid" id="modeGrid" aria-label="选择摄影模式"></section>
+      </section>
+    </main>
+
+    <div class="focus-dimmer" id="focusDimmer" aria-hidden="true"></div>
+
+    <section class="mode-sheet" id="modeSheet" aria-hidden="true" role="dialog" aria-modal="true">
+      <button class="scrim" id="closeSheet" type="button" aria-label="关闭"></button>
+      <div class="sheet-card">
+        <div class="grabber" aria-hidden="true"></div>
+        <div class="sheet-hero">
+          <div class="sheet-icon" id="sheetIcon"></div>
+          <div>
+            <p class="sheet-kicker" id="sheetKicker"></p>
+            <h2 id="sheetTitle"></h2>
+          </div>
+        </div>
+        <p class="sheet-copy" id="sheetCopy"></p>
+        <div class="preset-row" id="presetRow"></div>
+        <div class="action-stack">
+          <button class="primary-action" id="cameraButton" type="button">
+            <span>打开相机</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6.5 10.4 5h3.2L15 6.5h2.7A2.3 2.3 0 0 1 20 8.8v7.4a2.3 2.3 0 0 1-2.3 2.3H6.3A2.3 2.3 0 0 1 4 16.2V8.8a2.3 2.3 0 0 1 2.3-2.3H9Z" />
+              <circle cx="12" cy="12.5" r="3.2" />
+            </svg>
+          </button>
+          <button class="ghost-action" id="frontCameraButton" type="button">前摄自拍入口</button>
+        </div>
+        <p class="sheet-note" id="sheetNote"></p>
+      </div>
+    </section>
+
+    <section class="toast" id="toast" role="status" aria-live="polite"></section>
+
+    <input id="cameraInput" class="camera-input" type="file" accept="image/*" capture="environment" />
+    <input id="frontCameraInput" class="camera-input" type="file" accept="image/*" capture="user" />
+
+    <script src="./modes.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
